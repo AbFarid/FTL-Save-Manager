@@ -1,0 +1,196 @@
+# Header
+4 bytes (32bit int)     Version
+4 bytes (bool)          Is Difficulty Easy
+
+# Progress
+4 bytes (32bit int)     Ships defeated
+4 bytes (32bit int)     Jumps in sector
+4 bytes (32bit int)     Scrap collected
+4 bytes (32bit int)     Crew recruited
+
+# Ship Designation
+4 bytes (32bit int)     String length (Ship name)
+n bytes (char *)        Ship name
+4 bytes (32bit int)     String length (Ship ID)
+n bytes (char *)        Ship ID
+4 bytes (32bit int)     Sector Number (One-based, display only?)
+4 bytes (32bit int)     Unknown (Always 0?)
+
+# Score & Categories
+4 bytes (32bit int)     Categories count
+  # Begin category stat
+  4 bytes (32bit int)     String length (Category ID)
+  n bytes (char *)        Category ID
+  4 bytes (32bit int)     Category value
+  # End category stat
+
+# Player Ship Details
+  4 bytes (32bit int)     String length (Ship ID)
+  n bytes (char *)        Ship ID
+  4 bytes (32bit int)     String length (Ship name)
+  n bytes (char *)        Ship name
+  4 bytes (32bit int)     String length (Ship type ID)
+  n bytes (char *)        Ship type ID
+
+  # Crew Overview
+  4 bytes (32bit int)     Crew count
+    # Begin crew member stub
+    4 bytes (32bit int)     String length (Race)
+    n bytes (char *)        Race
+    4 bytes (32bit int)     String length (Name)
+    n bytes (char *)        Name
+    # End crew member stub
+
+  # Ship Resources
+  4 bytes (32bit int)     Hull
+  4 bytes (32bit int)     Fuel
+  4 bytes (32bit int)     Drones
+  4 bytes (32bit int)     Missiles
+  4 bytes (32bit int)     Scrap
+
+  # Crew Details
+  4 bytes (32bit int)     Crew count
+    # Begin crew member details
+    4 bytes (32bit int)     String length (Name)
+    n bytes (char *)        Name
+    4 bytes (32bit int)     String length (Race)
+    n bytes (char *)        Race
+    4 bytes (bool)          Is drone
+    4 bytes (32bit int)     HP
+    4 bytes (32bit int)     X coordinate
+    4 bytes (32bit int)     Y coordinate
+    4 bytes (32bit int)     Room
+    4 bytes (32bit int)     Room tile
+    4 bytes (unknown)       Unknown
+    4 bytes (32bit int)     Piloting (0-30)
+    4 bytes (32bit int)     Engines (0-30)
+    4 bytes (32bit int)     Shields (0-110)
+    4 bytes (32bit int)     Weapons (0-130)
+    4 bytes (32bit int)     Repair (0-36)
+    4 bytes (32bit int)     Combat (0-16)
+    4 bytes (32bit int)     Gender
+    4 bytes (32bit int)     Repairs (stat)
+    4 bytes (32bit int)     Combat kills (stat)
+    4 bytes (32bit int)     Piloted evasions (stat)
+    4 bytes (32bit int)     Jumps survived (stat)
+    4 bytes (32bit int)     Skill masteries (stat)
+    # End crew member details
+
+  # System Power
+    4 bytes (32bit int)     Total power capacity
+    # After this there are 12 sets of system information (no leading length int):
+    #   shields, engines, oxygen, weapons, drone control, medbay,
+    #   pilot, sensors, doors, teleporter, cloaking, artillery
+    4 bytes (32bit int)       System power capacity
+      # IF CAPACITY IS ZERO, THIS NEXT INFORMATION IS NOT INCLUDED
+        4 bytes (32bit int)     Power in system
+        4 bytes (32bit int)     Number of damaged bars
+        4 bytes (32bit int)     Number of ionized bars
+        4 bytes (32bit int)     Deionization time? (-2147483648 sometimes but not sure why)
+        4 bytes (32bit int)     Repair progress
+        4 bytes (32bit int)     Damage progress
+    
+  # Rooms (See ship layout files for the room count and squares)
+    4 bytes(32 bit int)     Oxygen percentage (0-100)
+      # Each square in the room (top-to-bottom, left-to-right)
+      4 bytes(32 bit int)     Fire health (0-100)
+      4 bytes(32 bit int)     Ignition progress (0-100, new fire spawns at 100)
+      4 bytes(32 bit int)     Unknown (Always -1?)
+
+  # Hull Breaches
+    4 bytes (32 bit int)    Breach Count
+      # Begin breach information
+      4 bytes(32 bit int)     0-based Nth floor-square from the left (plus ShipLayout X_OFFSET)
+      4 bytes(32 bit int)     0-based Nth floor-square from the top (plus ShipLayout Y_OFFSET)
+      4 bytes(32 bit int)     Breach health (0-100)
+
+  # Doors
+    # These appear in the same order as the ship's layout file,
+    # except that vacuum-adjacent doors are plucked out and moved to the end.
+      4 bytes(32 bit int)     0-based Nth wall from the left
+      4 bytes(32 bit int)     0-based Nth wall from the top
+      4 bytes(32 bit int)     1 for vertical wall coords, 0 for horizontal
+      4 bytes(bool)           Open
+      4 bytes(bool)           Walking through (momentarily open)
+
+  # Weaponry
+    4 bytes (32 bit int)    Weapon Count
+      # Begin weapon information
+      4 bytes (32 bit int)    String Length (Weapon)
+      n bytes (char *)        Weapon Name
+      4 bytes (32 bit int)    1 for powered, 0 for unpowered
+
+  # Drones
+    4 bytes (32 bit int)    Drone Count
+      # Begin drone information
+      4 bytes (32 bit int)    String Length (Drone)
+      n bytes (char *)        Drone Name
+      28 bytes (unknown)      Unknown
+
+  # Augmentations
+    4 bytes (32 bit int)    Augmentation Count
+      # Begin Augmentation Information
+      4 bytes (32 bit int)    String Length (Augmentation)
+      n bytes (char *)        Augmentation Name
+
+# Player Cargo Hold (Nearby ships don't have this)
+  4 bytes (32 bit int)    Cargo Hold Count
+    # Begin cargo information
+    4 bytes (32 bit int)    String Length (Cargo Item)
+    n bytes (char *)        Cargo Item Name
+
+4 bytes (32 bit int)    Sector Tree seed
+4 bytes (32 bit int)    Sector layout seed
+4 bytes (32 bit int)    Rebel fleet offset
+4 bytes (32 bit int)    Rebel fleet fudge
+4 bytes (32 bit int)    Rebel pursuit mod
+4 bytes (bool)          Sector hazards visible
+4 bytes (bool)          Rebel flagship visible
+4 bytes (32 bit int)    Rebel flagship hop
+4 bytes (32 bit int)    Sector Rebel flagship moving
+
+# Sector Tree Dots
+  4 bytes (32 bit int)    Sector tree dot count
+    # Begin sector tree dot information
+    4 bytes (bool)          Sector visited
+
+# Map Info
+4 bytes (32 bit int)    Sector number (0-based)
+4 bytes (32 bit int)    Sector is "Hidden Crystal Worlds"
+
+4 bytes (32 bit int)    Beacon count
+# ...
+
+4 bytes (32 bit int)    Quest event count
+# ...
+
+4 bytes (32 bit int)    Player ship's current beacon index (0-based)
+
+4 bytes (bool)          Is there a nearby ship
+# If, true, repeat all structures seen in "Player Ship Details", without cargo.
+
+# Rebel Flagship
+# Throughout the game, stage 1 is set as the pending boss.
+# When it is defeated, the number of crew in each room are counted to
+# carry over into the next stage.
+#
+# Stage 1 sets the crew occupancy, but doesn't read it.
+# Fleeing stage 1, altering these bytes, then returning
+# only results in a fresh fight.
+#
+# Upon first engaging stage 2, the layout is migrated.
+# The previous occupancy list is truncated to the new layout's
+# room count. (The blueprints happen to have matching low roomIds.)
+#
+#   Stage 1: 0x13=19 rooms
+#   Stage 2: 0x0F=15 rooms
+#   Stage 3: 0x0B=11 rooms
+#   Having 0 rooms occupied is allowed, meaning AI took over.
+#
+# Stage 2 will read altered bytes on additional skirmishes.
+# Stage 3 probably will, too. (unconfirmed)
+#
+4 bytes (32 bit int)    Pending rebel flagship stage (1,2,3)
+4 bytes (32 bit int)    Occupied room count of previous flagship stage
+  # Begin flagship room occupancy
+  4 bytes (32 bit int)    Crew count in the Nth room (see the flagship's layout file)

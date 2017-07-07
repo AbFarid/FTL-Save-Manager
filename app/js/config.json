@@ -1,0 +1,8 @@
+{
+    "savesDir": {
+        "win32": "/Documents/My Games/FasterThanLight",
+        "darwin": "/Library/Application Support/FasterThanLight",
+        "linux": "/.local/share/FasterThanLight"
+    },
+    "backupsDir": "/backups"
+}

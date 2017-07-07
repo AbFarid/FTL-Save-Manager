@@ -1,0 +1,22 @@
+{
+  "name": "ftl-savefile-manager",
+  "version": "0.1.0",
+  "description": "Save file backup and restore tool for FTL: Faster Than Light",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Farid Abbasbayli",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.6.11"
+  },
+  "dependencies": {
+    "buffer-to-string": "^0.1.0",
+    "bytecode": "^1.1.0",
+    "material-design-lite": "^1.3.0",
+    "moment": "^2.18.1",
+    "vue": "^2.3.4"
+  }
+}

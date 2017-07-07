@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FTL save file manager</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../node_modules/material-design-lite/material.min.css">
+    <script src="../node_modules/material-design-lite/material.min.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+    <main id="app">
+
+
+
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" v-on:click="getBackups">
+                Backup save
+        </button>
+
+        <!--<ul>
+            <li v-for="file in files">{{ file }}</li>
+        </ul>-->
+
+        <div class="demo-card-event mdl-card mdl-shadow--2dp" v-for="file in files">
+            <div class="mdl-card__title mdl-card--expand">
+                <h4>
+                    {{ file }}
+                </h4>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Restore
+                </a>
+                <div class="mdl-layout-spacer"></div>
+                <i class="material-icons">delete</i>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/utils.js"></script>
+    <script src="js/component.js"></script>
+
+</body>
+
+</html>
