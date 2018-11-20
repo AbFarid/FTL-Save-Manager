@@ -1,0 +1,562 @@
+[
+    {
+        "name": "File type",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Version",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Is Difficulty Easy",
+        "length": "4",
+        "type": "bool"
+    },
+    {
+        "name": "Ships defeated",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Jumps in sector",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Scrap collected",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Crew recruited",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String length (Ship name)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Ship name",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "String length (Ship ID)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Ship ID",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "Sector Number (One-based, display only?)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Unknown (Always 0?)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Categories count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String length (Category ID)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Category ID",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "Category value",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String length (Ship ID)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Ship ID",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "String length (Ship name)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Ship name",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "String length (Ship type ID)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Ship type ID",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "Crew count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String length (Race)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Race",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "String length (Name)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Name",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "Hull",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Fuel",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Drones",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Missiles",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Scrap",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Crew count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String length (Name)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Name",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "String length (Race)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Race",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "Is drone",
+        "length": "4",
+        "type": "bool"
+    },
+    {
+        "name": "HP",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "X coordinate",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Y coordinate",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Room",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Room tile",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Unknown",
+        "length": "4",
+        "type": "ERROR! ERROR! ERROR!"
+    },
+    {
+        "name": "Piloting (0-30)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Engines (0-30)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Shields (0-110)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Weapons (0-130)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Repair (0-36)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Combat (0-16)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Gender",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Repairs (stat)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Combat kills (stat)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Piloted evasions (stat)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Jumps survived (stat)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Skill masteries (stat)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Total power capacity",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "System power capacity",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Power in system",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Number of damaged bars",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Number of ionized bars",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Deionization time? (-2147483648 sometimes but not sure why)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Repair progress",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Damage progress",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Oxygen percentage (0-100)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Fire health (0-100)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Ignition progress (0-100, new fire spawns at 100)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Unknown (Always -1?)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Breach Count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "0-based Nth floor-square from the left (plus ShipLayout X_OFFSET)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "0-based Nth floor-square from the top (plus ShipLayout Y_OFFSET)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Breach health (0-100)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "0-based Nth wall from the left",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "0-based Nth wall from the top",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "1 for vertical wall coords, 0 for horizontal",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Open",
+        "length": "4",
+        "type": "bool"
+    },
+    {
+        "name": "Walking through (momentarily open)",
+        "length": "4",
+        "type": "bool"
+    },
+    {
+        "name": "Weapon Count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String Length (Weapon)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Weapon Name",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "1 for powered, 0 for unpowered",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Drone Count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String Length (Drone)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Drone Name",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "Unknown",
+        "length": "28",
+        "type": "ERROR! ERROR! ERROR!"
+    },
+    {
+        "name": "Augmentation Count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String Length (Augmentation)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Augmentation Name",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "Cargo Hold Count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "String Length (Cargo Item)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Cargo Item Name",
+        "length": "n",
+        "type": "char"
+    },
+    {
+        "name": "Sector Tree seed",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Sector layout seed",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Rebel fleet offset",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Rebel fleet fudge",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Rebel pursuit mod",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Sector hazards visible",
+        "length": "4",
+        "type": "bool"
+    },
+    {
+        "name": "Rebel flagship visible",
+        "length": "4",
+        "type": "bool"
+    },
+    {
+        "name": "Rebel flagship hop",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Sector Rebel flagship moving",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Sector tree dot count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Sector visited",
+        "length": "4",
+        "type": "bool"
+    },
+    {
+        "name": "Sector number (0-based)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Sector is 'Hidden Crystal Worlds'",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Beacon count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Quest event count",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Player ship's current beacon index (0-based)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Is there a nearby ship",
+        "length": "4",
+        "type": "bool"
+    },
+    {
+        "name": "Pending rebel flagship stage (1,2,3)",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Occupied room count of previous flagship stage",
+        "length": "4",
+        "type": "int"
+    },
+    {
+        "name": "Crew count in the Nth room (see the flagship's layout file)",
+        "length": "4",
+        "type": "int"
+    }
+]

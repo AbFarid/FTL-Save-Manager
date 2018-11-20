@@ -1,4 +1,5 @@
 # Header
+4 bytes (32bit int)     File type
 4 bytes (32bit int)     Version
 4 bytes (bool)          Is Difficulty Easy
 
@@ -25,10 +26,10 @@ n bytes (char *)        Ship ID
   # End category stat
 
 # Player Ship Details
-  4 bytes (32bit int)     String length (Ship ID)
-  n bytes (char *)        Ship ID
-  4 bytes (32bit int)     String length (Ship name)
-  n bytes (char *)        Ship name
+  4 bytes (32bit int)     String length (Ship ID 2)
+  n bytes (char *)        Ship ID 2
+  4 bytes (32bit int)     String length (Ship name 2)
+  n bytes (char *)        Ship name 2
   4 bytes (32bit int)     String length (Ship type ID)
   n bytes (char *)        Ship type ID
 
@@ -156,7 +157,7 @@ n bytes (char *)        Ship ID
 
 # Map Info
 4 bytes (32 bit int)    Sector number (0-based)
-4 bytes (32 bit int)    Sector is "Hidden Crystal Worlds"
+4 bytes (32 bit int)    Sector is 'Hidden Crystal Worlds'
 
 4 bytes (32 bit int)    Beacon count
 # ...

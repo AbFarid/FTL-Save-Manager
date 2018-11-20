@@ -45,27 +45,56 @@ const orderOfValues = {
     'ship name': 'get'
 }
 
-function getVal() {
-    let structure = fs.readFileSync('structure.txt');
+
+
+function hexToDec(hexStr) {
+    const hexStrReverse = hexStr.match(/.{1,2}/g).reverse().join('');
+    return parseInt(hexStrReverse, 16);
 }
 
-function hexToInt(hexString) {
-    return parseInt(hexString, 16);
+function hexToUTF8(hexStr) {
+    return new Buffer(hexStr, 'hex').toString('utf8');
 }
 
-function getByteAt(index) {
-    return '' + bytestring[index] + bytestring[index + 1];
-}
-function get4BytesAt() {}
-
-function getShipNameLength() {
-    const nameLengthOffset = 56;
-    return hexToInt(getByteAt(nameLengthOffset));
+function getBytesAt(index, length = 4) {
+    return bytestring.slice(index, index + (length*2));
 }
 
-let output = '';
-// const regex = /(?:.+  )(.+)/;
-const regex = /(\d+).*?\s*  (.*)/;
+function getVal(entries, target, cb) {
+    let offset = 0;
+    let lastByteLen = 0;
+    let index = 0;
+    for (let entry of entries) {
+        if (entry.len == 'n') {
+            entry.len = hexToDec(getBytesAt(offset - lastByteLen*2));
+        }
+        console.log(entry, offset, lastByteLen, index);
+        if (entry.name == target) {
+            let value;
+            if (entry.type == 'int') value = hexToDec(getBytesAt(offset, entry.len));
+            if (entry.type == 'char') value = hexToUTF8(getBytesAt(offset, entry.len));
+            if (entry.type == 'bool') value = true;
+            cb(value);
+            break;
+        }
+        lastByteLen = entry.len;
+        offset += entry.len*2;
+        index++;
+    }
+}
+
+function getDataType(str) {
+    if (str.indexOf('bit int') != -1) return 'int';
+    else if (str.indexOf('bool') != -1) return 'bool';
+    else if (str.indexOf('char *') != -1) return 'char';
+    else return 'unknown';
+}
+
+let output = [];
+const regexName = /(?:.+  )(.+)/;
+const regexBytes = /(\d+).*?\s*  (.*)/;
+let inSection = false;
+
 const rl = readline.createInterface({
     input: fs.createReadStream('structure.txt')
 });
@@ -74,15 +103,29 @@ rl.on('line', function (line) {
     while (line.charAt(0) == ' ') {
         line = line.slice(1)
     };
+    // handle sections
+
+    // structure txt to json
     if (Number.isInteger(parseInt(line.charAt(0))) || line.charAt(0) == 'n') {
-        
-        // output += line + '\n';
-        if (Number.isInteger(parseInt(line.charAt(0)))) console.log(regex.exec(line)[1]);
+        let name = regexName.exec(line)[1];
+        let type = getDataType(line);
+        let len;
+        if (Number.isInteger(parseInt(line.charAt(0)))) len = parseInt(regexBytes.exec(line)[1]);
+        else if (line.charAt(0) == 'n') {len = 'n';}
+        output.push({name, len, type});
+
+        // if (name.indexOf('count') != -1) {
+        //     expectSection = true;
+        // }
     }
 });
 
 rl.on('close', () => {
-    console.log(output);
+    getVal(output, 'Categories count', (bytes) => {
+        console.log(bytes);
+    });
+    // fs.writeFileSync('output.json', JSON.stringify(output));
+    // getVal(output, 'Ships defeated');
 });
 
 
